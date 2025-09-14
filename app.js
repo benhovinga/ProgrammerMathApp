@@ -12,7 +12,7 @@
 
 function App() {
     console.clear();
-    console.info('Starting App...')
+    console.info('Starting App...');
 
     // Save the pointers for the selection elements.
     const convertFromElements = document.getElementsByName('convertFrom');
@@ -53,7 +53,7 @@ function App() {
                         convertToElements[index + 1]. checked = true;
                         convertTo = conversionOptions[index + 1];
                     }
-                    console.debug(`Program updated 'convertTo': '${convertTo}'`)
+                    console.debug(`Program updated 'convertTo': '${convertTo}'`);
                 }
             }
         });
@@ -65,6 +65,16 @@ function App() {
         convertTo = event.target.value;
         console.info(`User updated 'convertTo': '${convertTo}'`);
     });
+
+    function getDecimalValue() {
+        return Math.floor(Math.random() * 255);
+    }
+
+    function decimalToBinary(decimalNumber) {}  // TODO
+    function decimalToHexadecimal(decimalNumber){}  // TODO
+    function binaryToDecimal(binaryString) {} // TODO
+    function hexadecimalToDecimal(hexadecimalString) {} // TODO
+
 }
 
 // Start the app when the DOM is ready.

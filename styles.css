@@ -20,3 +20,7 @@ legend {
 input {
     margin: 0.4rem;
 }
+
+#practiceApp input:checked + label {
+    font-weight: bold;
+}

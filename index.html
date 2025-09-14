@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer Math Practice App</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>Programmer Math Practice</h1>
+    <p>This is a tool you can use to practice converting between <strong>decimal</strong>, <strong>binary</strong>, and <strong>hexadecimal</strong> values.</p>
+
+    <!-- App -->
+    <!--
+        Abbreviations
+        dec = decimal
+        bin = binary
+        hex = hexadecimal
+    -->
+    <form id="practiceApp">
+        <!-- Convert from selector -->
+        <fieldset id="convertFrom">
+            <legend>Convert From</legend>
+
+            <input type="radio" id="fromDec" name="convertFrom" value="dec" />
+            <label for="fromDec">Decimal</label><br />
+
+            <input type="radio" id="fromBin" name="convertFrom" value="bin" />
+            <label for="fromBin">Binary</label><br />
+
+            <input type="radio" id="fromHex" name="convertFrom" value="hex" />
+            <label for="fromHex">Hexadecimal</label><br />
+            
+        </fieldset>
+
+        <!-- Convert to selector -->
+        <fieldset id="convertTo">
+            <legend>Convert To</legend>
+
+            <input type="radio" id="toDec" name="convertTo" value="dec" />
+            <label for="toDec">Decimal</label><br />
+
+            <input type="radio" id="toBin" name="convertTo" value="bin" />
+            <label for="toBin">Binary</label><br />
+
+            <input type="radio" id="toHex" name="convertTo" value="hex" />
+            <label for="toHex">Hexadecimal</label>
+            
+        </fieldset>
+
+        <!-- Quiz section -->
+        <div>
+            <span id="question">[RANDOM_VALUE]</span> = <input type="text" id="userGuess" placeholder="Your guess here" /><br />
+            <input type="button" id="submitBtn" value="Submit" />
+        </div>
+    </form>
+
+
+    <footer>
+        <p>Made with ❤️ in 🍁 by <a target="_blank" rel="author" href="https://ben.hovinga.ca">Benjamin P.C. Hovinga</a>.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

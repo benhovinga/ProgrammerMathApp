@@ -1,0 +1,22 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer {
+    font-size: xx-small;
+    color: gray;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+legend {
+    background-color:#555555;
+    color: white;
+    padding: 3px 6px;
+}
+
+input {
+    margin: 0.4rem;
+}

@@ -3,10 +3,9 @@
  * 
  * A tool to help junior developers practice some basic programming math.
  * @author Benjamin P.C. Hovinga
- * @copyright Copyright 2025 Benjamin P.C. Hovinga
  * @license MIT
  * 
- * *This program does not contain AI generated code.*
+ * Notice: This program does not contain AI generated code.
  */
 
 

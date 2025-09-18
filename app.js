@@ -9,6 +9,30 @@
  */
 
 
+function getRandomDecimalNumber() {
+    return Math.floor(Math.random() * 255);
+}
+
+
+function convertDecimalToBinary(decimalNumber) {
+    return decimalNumber.toString(2).padStart(8, "0");
+}
+
+
+function convertBinaryToDecimal(binaryString) {
+    return parseInt(binaryString, 2);
+}
+
+
+function convertDecimalToHexadecimal(decimalNumber) {
+    return decimalNumber.toString(16).toUpperCase();
+}
+
+
+function convertHexadecimalToDecimal(hexadecimalString) {
+    return parseInt(hexadecimalString, 16);
+}
+
 
 function App() {
     console.clear();
@@ -65,16 +89,6 @@ function App() {
         convertTo = event.target.value;
         console.info(`User updated 'convertTo': '${convertTo}'`);
     });
-
-    function getDecimalValue() {
-        return Math.floor(Math.random() * 255);
-    }
-
-    function decimalToBinary(decimalNumber) {}  // TODO
-    function decimalToHexadecimal(decimalNumber){}  // TODO
-    function binaryToDecimal(binaryString) {} // TODO
-    function hexadecimalToDecimal(hexadecimalString) {} // TODO
-
 }
 
 // Start the app when the DOM is ready.

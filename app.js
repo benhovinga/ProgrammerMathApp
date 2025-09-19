@@ -15,7 +15,7 @@ function getRandomDecimalNumber() {
 
 
 function convertDecimalToBinary(decimalNumber) {
-    return decimalNumber.toString(2).padStart(8, "0");
+    return decimalNumber.toString(2).padStart(8, '0');
 }
 
 
@@ -25,7 +25,7 @@ function convertBinaryToDecimal(binaryString) {
 
 
 function convertDecimalToHexadecimal(decimalNumber) {
-    return decimalNumber.toString(16).toUpperCase();
+    return decimalNumber.toString(16).toUpperCase().padStart(2, '0');
 }
 
 
@@ -57,8 +57,8 @@ function App() {
     const convertToElements = document.getElementsByName('convertTo');
 
     // Save the pointers for the question and answer elements.
-    const questionElement = document.getElementById("question");
-    const answerElement = document.getElementById("answer");
+    const questionElement = document.getElementById('question');
+    const answerElement = document.getElementById('answer');
 
     // Set the default states of the app.
     const numberSystems = ['dec', 'bin', 'hex'];

@@ -103,6 +103,7 @@ function App() {
 
         // Finally update the question value to the new number system selected.
         questionElement.innerText = getNewQuestion(convertFrom);
+        console.info(`New question value '${questionElement.innerText}'`)
     });
 
     // When 'Convert To' changes.

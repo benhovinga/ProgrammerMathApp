@@ -42,6 +42,10 @@ function App() {
     const convertFromElements = document.getElementsByName('convertFrom');
     const convertToElements = document.getElementsByName('convertTo');
 
+    // Save the pointers for the question and answer elements.
+    const questionElement = document.getElementById("question");
+    const answerElement = document.getElementById("answer");
+
     // Set the default states of the app.
     const conversionOptions = ['dec', 'bin', 'hex'];
     let convertFrom = conversionOptions[0];
@@ -49,6 +53,7 @@ function App() {
     convertFromElements[0].checked = true;
     convertToElements[0].disabled = true;
     convertToElements[1].checked = true;
+    questionElement.innerText = getRandomDecimalNumber();
 
     // When 'convertFrom' changes.
     document.getElementById('convertFrom').addEventListener('change', function(event) {
@@ -81,6 +86,17 @@ function App() {
                 }
             }
         });
+
+        // Finally update the question value to the new number system selected.
+        if (convertFrom === 'dec') {
+            questionElement.innerText = getRandomDecimalNumber();
+        }
+        else if (convertFrom === 'bin') {
+            questionElement.innerText = convertDecimalToBinary(getRandomDecimalNumber());
+        }
+        else if (convertFrom === 'hex') {
+            questionElement.innerText = convertDecimalToHexadecimal(getRandomDecimalNumber());
+        }
     });
 
     // When 'Convert To' changes.

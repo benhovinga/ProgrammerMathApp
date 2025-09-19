@@ -33,19 +33,18 @@ function convertHexadecimalToDecimal(hexadecimalString) {
     return parseInt(hexadecimalString, 16);
 }
 
-function setNewQuestion(element, numberSystem) {
+
+function getNewQuestion(numberSystem) {
     if (numberSystem === 'dec') {
-        element.innerText = getRandomDecimalNumber();
+        return getRandomDecimalNumber();
     }
     else if (numberSystem === 'bin') {
-        element.innerText = convertDecimalToBinary(getRandomDecimalNumber());
+        return convertDecimalToBinary(getRandomDecimalNumber());
     }
     else if (numberSystem === 'hex') {
-        element.innerText = convertDecimalToHexadecimal(getRandomDecimalNumber());
+        return convertDecimalToHexadecimal(getRandomDecimalNumber());
     }
-    else {
-        new Error(`Number system not supported: '${numberSystem}'`);
-    }
+    new Error(`Number system '${numberSystem}' is not supported. Expected 'dec', 'bin', or 'hex'.`);
 }
 
 
@@ -68,7 +67,7 @@ function App() {
     convertFromElements[0].checked = true;
     convertToElements[0].disabled = true;
     convertToElements[1].checked = true;
-    questionElement.innerText = getRandomDecimalNumber();
+    questionElement.innerText = getNewQuestion(numberSystems[0]);
 
     // When 'convertFrom' changes.
     document.getElementById('convertFrom').addEventListener('change', function(event) {
@@ -103,7 +102,7 @@ function App() {
         });
 
         // Finally update the question value to the new number system selected.
-        setNewQuestion(questionElement, convertFrom);
+        questionElement.innerText = getNewQuestion(convertFrom);
     });
 
     // When 'Convert To' changes.

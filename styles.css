@@ -24,3 +24,23 @@ input {
 #practiceApp input:checked + label {
     font-weight: bold;
 }
+
+input[type='text'] {
+    border: #000000 1px solid;
+}
+
+#answer.correct {
+    border: #00AA00 1px solid;
+}
+
+#answer.incorrect {
+    border: #FF0000 1px solid;
+}
+
+#result.correct {
+    color: #00AA00;
+}
+
+#result.incorrect {
+    color: #FF0000;
+}

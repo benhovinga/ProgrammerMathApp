@@ -48,26 +48,68 @@ function getNewQuestion(numberSystem) {
 }
 
 
+function checkAnswer(from, to, question, answer) {
+    // Check that a answer was provided.
+    if (answer === '') {
+        return false;
+    }
+
+    // Decimal to Binary
+    if (from === 'dec' && to === 'bin') {
+        return parseInt(question, 10) === convertBinaryToDecimal(answer);
+    }
+    // Decimal to Hexadecimal.
+    else if (from === 'dec' && to === 'hex') {
+        return parseInt(question, 10) === convertHexadecimalToDecimal(answer);
+    }
+    // Binary to Decimal.
+    else if (from === 'bin' && to === 'dec') {
+        return convertBinaryToDecimal(question) === parseInt(answer, 10);
+    }
+    // Binary to Hexadecimal.
+    else if (from === 'bin' && to === 'hex') {
+        return convertBinaryToDecimal(question) === convertHexadecimalToDecimal(answer);
+    }
+    // Hexadecimal to Decimal.
+    else if (from === 'hex' && to === 'dec') {
+        return convertHexadecimalToDecimal(question) === parseInt(answer, 10);
+    }
+    // Hexadecimal to Binary.
+    else if (from === 'hex' && to === 'bin') {
+        return convertHexadecimalToDecimal(question) === convertBinaryToDecimal(answer);
+    }
+}
+
+
 function App() {
     console.clear();
     console.info('Starting App...');
+
+    // Define the number systems.
+    const NUMBER_SYSTEMS = ['dec', 'bin', 'hex'];
 
     // Save the pointers for the selection elements.
     const convertFromElements = document.getElementsByName('convertFrom');
     const convertToElements = document.getElementsByName('convertTo');
 
-    // Save the pointers for the question and answer elements.
+    // Save the pointers for the question, answer, and result elements.
     const questionElement = document.getElementById('question');
     const answerElement = document.getElementById('answer');
+    const resultElement = document.getElementById('result');
 
     // Set the default states of the app.
-    const numberSystems = ['dec', 'bin', 'hex'];
-    let convertFrom = numberSystems[0];
-    let convertTo = numberSystems[1];
+    let convertFrom = NUMBER_SYSTEMS[0];
+    let convertTo = NUMBER_SYSTEMS[1];
     convertFromElements[0].checked = true;
     convertToElements[0].disabled = true;
     convertToElements[1].checked = true;
-    questionElement.innerText = getNewQuestion(numberSystems[0]);
+    questionElement.innerText = getNewQuestion(NUMBER_SYSTEMS[0]);
+
+    // Define a helper function to reset styles.
+    function resetStyles() {
+        answerElement.classList.remove('correct', 'incorrect');
+        resultElement.classList.remove('correct', 'incorrect');
+    }
 
     // When 'convertFrom' changes.
     document.getElementById('convertFrom').addEventListener('change', function(event) {
@@ -90,11 +132,11 @@ function App() {
                     if (index >= 2) {
                         // Move to top position.
                         convertToElements[0].checked = true;
-                        convertTo = numberSystems[0];
+                        convertTo = NUMBER_SYSTEMS[0];
                     } else {
                         // Move to next position.
                         convertToElements[index + 1]. checked = true;
-                        convertTo = numberSystems[index + 1];
+                        convertTo = NUMBER_SYSTEMS[index + 1];
                     }
                     console.debug(`Program updated 'convertTo': '${convertTo}'`);
                 }
@@ -111,6 +153,37 @@ function App() {
         // Update the selected value
         convertTo = event.target.value;
         console.info(`User updated 'convertTo': '${convertTo}'`);
+    });
+
+    // When the Submit button is clicked.
+    document.getElementById('submitBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        // Reset the styles.
+        resetStyles();
+
+        // Check if the answer is correct.
+        if (checkAnswer(convertFrom, convertTo, questionElement.innerText, answerElement.value.trim())) {
+            answerElement.classList.add('correct');
+            resultElement.innerText = "Correct!";
+            resultElement.classList.add('correct');
+        }
+        else {
+            answerElement.classList.add('incorrect');
+            resultElement.innerText = "Try again.";
+            resultElement.classList.add('incorrect');
+        }
+    });
+
+    // When the Reset button is clicked.
+    document.getElementById('resetBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        // Reset the styles.
+        resetStyles();
+        // Get a new question.
+        questionElement.innerText = getNewQuestion(convertFrom);
+        // Clear the answer and result.
+        answerElement.value = "";
+        resultElement.innerText = "";
     });
 }
 

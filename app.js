@@ -33,6 +33,21 @@ function convertHexadecimalToDecimal(hexadecimalString) {
     return parseInt(hexadecimalString, 16);
 }
 
+function setNewQuestion(element, numberSystem) {
+    if (numberSystem === 'dec') {
+        element.innerText = getRandomDecimalNumber();
+    }
+    else if (numberSystem === 'bin') {
+        element.innerText = convertDecimalToBinary(getRandomDecimalNumber());
+    }
+    else if (numberSystem === 'hex') {
+        element.innerText = convertDecimalToHexadecimal(getRandomDecimalNumber());
+    }
+    else {
+        new Error(`Number system not supported: '${numberSystem}'`);
+    }
+}
+
 
 function App() {
     console.clear();
@@ -47,9 +62,9 @@ function App() {
     const answerElement = document.getElementById("answer");
 
     // Set the default states of the app.
-    const conversionOptions = ['dec', 'bin', 'hex'];
-    let convertFrom = conversionOptions[0];
-    let convertTo = conversionOptions[1];
+    const numberSystems = ['dec', 'bin', 'hex'];
+    let convertFrom = numberSystems[0];
+    let convertTo = numberSystems[1];
     convertFromElements[0].checked = true;
     convertToElements[0].disabled = true;
     convertToElements[1].checked = true;
@@ -76,11 +91,11 @@ function App() {
                     if (index >= 2) {
                         // Move to top position.
                         convertToElements[0].checked = true;
-                        convertTo = conversionOptions[0];
+                        convertTo = numberSystems[0];
                     } else {
                         // Move to next position.
                         convertToElements[index + 1]. checked = true;
-                        convertTo = conversionOptions[index + 1];
+                        convertTo = numberSystems[index + 1];
                     }
                     console.debug(`Program updated 'convertTo': '${convertTo}'`);
                 }
@@ -88,15 +103,7 @@ function App() {
         });
 
         // Finally update the question value to the new number system selected.
-        if (convertFrom === 'dec') {
-            questionElement.innerText = getRandomDecimalNumber();
-        }
-        else if (convertFrom === 'bin') {
-            questionElement.innerText = convertDecimalToBinary(getRandomDecimalNumber());
-        }
-        else if (convertFrom === 'hex') {
-            questionElement.innerText = convertDecimalToHexadecimal(getRandomDecimalNumber());
-        }
+        setNewQuestion(questionElement, convertFrom);
     });
 
     // When 'Convert To' changes.

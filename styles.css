@@ -1,5 +1,4 @@
 * {
-    font-family: Helvetica, Arial, sans-serif;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -27,6 +26,8 @@ input {
 
 input[type='text'] {
     border: #000000 1px solid;
+    font-size: 2rem;
+    width: 16ch
 }
 
 #answer.correct {
@@ -43,4 +44,23 @@ input[type='text'] {
 
 #result.incorrect {
     color: #FF0000;
+}
+
+section {
+    max-width: 75ch;
+    margin: 3rem auto;
+}
+
+#quiz {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 2rem;
+}
+
+label {
+    font-size: larger;
+}
+
+input[type='submit'], input[type='reset'] {
+    font-size: large;
 }

@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Programmer Math Practice</h1>
-    <p>This is a tool you can use to practice converting between <strong>decimal</strong>, <strong>binary</strong>, and <strong>hexadecimal</strong> values.</p>
-
+    <section id="hero">
+        <h1>Programmer Math Practice App</h1>
+        <p>This little app can help new programmers practice converting between the various numbering system used by computers (<strong>Decimal, Binary, Hexadecimal</strong>).</p>
+    </section>
     <!-- App -->
     <!--
         Abbreviations
@@ -17,51 +18,61 @@
         bin = binary
         hex = hexadecimal
     -->
-    <form id="practiceApp">
-        <!-- Convert from selector -->
-        <fieldset id="convertFrom">
-            <legend>Convert From</legend>
+    <section id="app">
+        <form id="practiceApp">
+            <!-- Convert from selector -->
+            <fieldset id="convertFrom">
+                <legend>Convert From</legend>
 
-            <input type="radio" id="fromDec" name="convertFrom" value="dec" />
-            <label for="fromDec">Decimal</label><br />
+                <input type="radio" id="fromDec" name="convertFrom" value="dec" />
+                <label for="fromDec">Decimal</label><br />
 
-            <input type="radio" id="fromBin" name="convertFrom" value="bin" />
-            <label for="fromBin">Binary</label><br />
+                <input type="radio" id="fromBin" name="convertFrom" value="bin" />
+                <label for="fromBin">Binary</label><br />
 
-            <input type="radio" id="fromHex" name="convertFrom" value="hex" />
-            <label for="fromHex">Hexadecimal</label><br />
-            
-        </fieldset>
+                <input type="radio" id="fromHex" name="convertFrom" value="hex" />
+                <label for="fromHex">Hexadecimal</label><br />
+                
+            </fieldset>
 
-        <!-- Convert to selector -->
-        <fieldset id="convertTo">
-            <legend>Convert To</legend>
+            <!-- Convert to selector -->
+            <fieldset id="convertTo">
+                <legend>Convert To</legend>
 
-            <input type="radio" id="toDec" name="convertTo" value="dec" />
-            <label for="toDec">Decimal</label><br />
+                <input type="radio" id="toDec" name="convertTo" value="dec" />
+                <label for="toDec">Decimal</label><br />
 
-            <input type="radio" id="toBin" name="convertTo" value="bin" />
-            <label for="toBin">Binary</label><br />
+                <input type="radio" id="toBin" name="convertTo" value="bin" />
+                <label for="toBin">Binary</label><br />
 
-            <input type="radio" id="toHex" name="convertTo" value="hex" />
-            <label for="toHex">Hexadecimal</label>
-            
-        </fieldset>
+                <input type="radio" id="toHex" name="convertTo" value="hex" />
+                <label for="toHex">Hexadecimal</label>
+                
+            </fieldset>
 
-        <!-- Quiz section -->
-        <div>
-            <span id="question">[RANDOM_VALUE]</span> = <input type="text" id="answer" placeholder="Your answer here" /><br />
-            <span id="result"></span><br />
-            <input type="submit" id="submitBtn" value="Submit" />
-            <input type="reset" id="resetBtn" value="Reset" />
-        </div>
-    </form>
+            <!-- Quiz section -->
+            <div id="quiz">
+                <div id="question"></div>
+                <div id="equals">=</div>
+                <div>
+                    <input type="text" id="answer" placeholder="Your answer here" />
+                </div>
+                <div id="result"></div>
+                <div>
+                    <input type="submit" id="submitBtn" value="Submit" />
+                    <input type="reset" id="resetBtn" value="Reset" />
+                </div>
+            </div>
+        </form>
+    </section>
 
-    <h2>Usage</h2>
-    
-    <p>To start, select a "Convert From" number system (Decimal, Binary, or Hexadecimal). This is the number the computer will give you to solve.</p>
-    <p>Next select a "Convert To" number system (Decimal, Binary, or Hexadecimal). This is the number you will try to solve.</p>
-    <p>Put your answer in the box and press submit to check your results. Press reset to clear and get a new number to solve.</p>
+    <section id="usage">
+        <h2>Usage</h2>
+
+        <p>To start, select a "Convert From" number system (Decimal, Binary, or Hexadecimal). This is the number the computer will give you to solve.</p>
+        <p>Next select a "Convert To" number system (Decimal, Binary, or Hexadecimal). This is the number you will try to solve.</p>
+        <p>Put your answer in the box and press submit to check your results. Press reset to clear and get a new number to solve.</p>
+    </section>
 
     <footer>
         <p>Made with ❤️ in 🍁 by <a target="_blank" rel="author" href="https://ben.hovinga.ca">Benjamin P.C. Hovinga</a>.</p>
